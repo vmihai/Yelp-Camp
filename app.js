@@ -4,6 +4,7 @@ var express     = require("express"),
     mongoose    = require("mongoose");
 var Campground  = require("./models/campground");
 var seedDB = require("./seeds");
+var Comment = require("./models/comment");
 
 
 mongoose.connect("mongodb://localhost/yelp_camp");
@@ -23,7 +24,7 @@ app.get("/campgrounds", function(req, res){
        if(err){
            console.log(err);
        } else {
-          res.render("index",{campgrounds:allCampgrounds});
+          res.render("campgrounds/index",{campgrounds:allCampgrounds});
        }
     });
 });
@@ -48,7 +49,7 @@ app.post("/campgrounds", function(req, res){
 
 //NEW - show form to create new campground
 app.get("/campgrounds/new", function(req, res){
-   res.render("new.ejs");
+   res.render("campgrounds/new.ejs");
 });
 
 // SHOW - shows more info about one campground
@@ -60,10 +61,43 @@ app.get("/campgrounds/:id", function(req, res){
         } else {
           console.log(foundCampground);
             //render show template with that campground
-            res.render("show", {campground: foundCampground});
+            res.render("campgrounds/show", {campground: foundCampground});
         }
     });
-})
+});
+
+
+//new Comment
+app.get("/campgrounds/:id/comments/new", function(req, res){
+  Campground.findById(req.params.id, function(err, campground){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("comments/new", {campground: campground});
+    }
+  });
+});
+
+//Add new comment
+app.post("/campgrounds/:id/comments", function(req, res){
+  Campground.findById(req.params.id, function(err, campground){
+    if (err){
+      console.log(err);
+      redirect("/campgrounds");
+    }else{
+      //console.log(req.body.comment);
+      Comment.create(req.body.comment, function(err, comment){
+        if(err){
+          console.log(err);
+        }else{
+          campground.comments.push(comment);
+          campground.save();
+          res.redirect("/campgrounds/"+campground._id);
+        }
+      });
+    }
+  });
+});
 
 app.listen(3000, function() {
 	console.log(new Date().toISOString() + ": server started on port 3000");
