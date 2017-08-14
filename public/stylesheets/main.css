@@ -1,5 +1,20 @@
+body {
+  background: ##e0dede;
+}
+
+
 .thumbnail img {
   width:100%;
+}
+
+.jumbotron .container img {
+  width:100%;
+  margin-bottom: 20px;
+}
+
+.jumbotron .container {
+  padding:0px;
+
 }
 
 .thumbnail {
@@ -8,4 +23,20 @@
 
 .thumbnail .caption-full  {
   padding: 9px;
+}
+
+.test1 {
+  max-height: 160px;
+}
+
+.col-md-3 a {
+  background: white;
+}
+
+.col-md-3 a:hover {
+  background: #848484;
+}
+
+.caption {
+  height: 50px;
 }

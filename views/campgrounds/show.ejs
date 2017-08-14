@@ -2,11 +2,24 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <p class="lead">YelpCamp</p>
+      <p class="lead">FuriCurent</p>
       <div class="list-group">
-        <li class="list-group-item active">Info 1</li>
-        <li class="list-group-item">Info 2</li>
-        <li class="list-group-item">Info 3</li>
+        <li class="list-group-item active">Blonde</li>
+        <li class="list-group-item">Alinuta</li>
+        <li class="list-group-item">Bula</li>
+        <li class="list-group-item"><p><a href="bancuri/albanezi(66)">Albanezi <em>(11)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/alinuta(1)">Alinuta <em>(112)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/animale(2)">Animale <em>(504)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/anunturi-adevarate(3)">Anunturi adevarate <em>(100)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/arabi(93)">Arabi <em>(14)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/ardeleni(4)">Ardeleni <em>(111)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/asemanari(5)">Asemanari <em>(200)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/bancuri-noi(67)">Bancuri noi <em>(1608)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/barbati(6)">Barbati <em>(544)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/betivi(7)">Betivi <em>(275)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/blonde(8)">Blonde <em>(543)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/brunete(9)">Brunete <em>(6)</em></a></p></li>
+        <li class="list-group-item"><p><a href="bancuri/bula(10)">Bula <em>(753)</em></a></p></li>
       </div>
     </div>
     <div class="col-md-9">
@@ -20,14 +33,14 @@
       </div>
       <div class="well">
         <div class="text-right">
-          <a  class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a>
+          <a  class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Adauga comentariu</a>
         </div>
         <hr>
         <% campground.comments.forEach(function(comment){ %>
           <div class="row">
             <div class="col-md-12">
               <strong><%= comment.author %></strong>
-              <span class="pull-right">10 days ago</span>
+              <span class="pull-right">Acum 10 zile</span>
               <p>
                 <%= comment.text %>
               </p>

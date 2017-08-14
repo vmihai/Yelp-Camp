@@ -3,32 +3,14 @@ var Comment = require("./models/comment");
 var Campground = require("./models/campground");
 
 
-var data = [
-  {
-    name:"Bucegi",
-    image:"http://wallpapere.org/wp-content/uploads/2011/06/wallpapere-munti-natura.jpg",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-  {
-    name:"Fagaras",
-    image:"http://www.util21.ro/relaxare/poze/munte/hymalaya.jpg",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-  {
-    name:"Godeanu",
-    image:"http://wallpapere.org/wp-content/uploads/2011/05/munte_inzapezit_poiana_insorita_hd.jpg",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-  {
-    name:"Negoiu",
-    image:"http://muntii-bucegi.ro/img/Bucegi_vedere.jpg",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-  {
-    name:"Vama Veche",
-    image:"http://store03-1.peteava.ro/c1d1/da/fb/382532.jpg?token=ebe2544b23becb96",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-  {
-    name:"Mamaia",
-    image:"http://www.peisaje-montane.ro/poze_peisaje_wallpaper_bucegi_valea_prahovei/imagini_desktop/poze_munte_medii/medii-bucegi-valea-prahovei-47.jpg",
-    description:"asd asd asd as fas fsfas fas fsa fa sfa sf asf"},
-]
+var data = [];
+
+for (i=1;i<51;i++){
+  var name = i;
+  var image = "https://s3.eu-west-2.amazonaws.com/furicurent/image"+ i + ".jpg";
+  var description = "Cele mai tari glume si bancuri!";
+  data.push({name: name, image: image, description: description});
+}
 
 function seedDB(){
   //remove all campgrounds
@@ -47,8 +29,8 @@ function seedDB(){
             //create a comment
             Comment.create(
               {
-                text: "this place is great, but I wish there was internet",
-                author: "Homer"
+                text: "Super gluma!",
+                author: "Victor Mihaita"
               }, function(err, comment){
               if (err){
                 console.log(err)
